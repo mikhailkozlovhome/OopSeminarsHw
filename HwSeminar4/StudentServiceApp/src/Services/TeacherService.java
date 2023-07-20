@@ -29,7 +29,7 @@ public class TeacherService implements iPersonService<Teacher> {
     public void sortbyFIOStdLst() {
         teachers.sort(new PersonComparator<Teacher>());
     };
-
+//Получаем отсортированный список преподавателей в виде строки
     public String getSortTeachLstToStr() {
         StringBuilder sb = new StringBuilder();
 

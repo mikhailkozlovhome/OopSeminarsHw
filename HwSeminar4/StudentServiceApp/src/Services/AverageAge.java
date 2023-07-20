@@ -4,7 +4,8 @@ import java.util.List;
 
 import Domen.Person;
 
-public class AverageAge <T extends Person>{
+public class AverageAge<T extends Person> {
+    //Обобщенный метод для получения среднего возраста
     public double getAverageAge(List<T> lst) {
         double avrgAge = 0;
         for (T t : lst) {
