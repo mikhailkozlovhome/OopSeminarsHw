@@ -1,4 +1,8 @@
 package Calculator;
+
+import Calculator.Controller.iCalculable;
+import Calculator.Model.Arg;
+
 public class CalcDecorator implements iCalculable {
 
     private iCalculable oldCalc;
@@ -10,10 +14,10 @@ public class CalcDecorator implements iCalculable {
     }
 
     @Override
-    public iCalculable sum(int arg) {
-       int firstArg = oldCalc.getResult();
+    public iCalculable sum(Arg arg) {
+       Arg firstArg = oldCalc.getResult();
 
-       logger.log(String.format("Первое значение калькулятора %d. Начало вызова метода sum с параметром %d", firstArg, arg));
+       logger.log(String.format("Первое значение калькулятора %f+%f*i. Начало вызова метода sum с параметром %f+%f*i", firstArg.getRealPart(), firstArg.getComplexPart(), arg.getRealPart(), arg.getComplexPart()));
        iCalculable result = oldCalc.sum(arg);
        logger.log(String.format("Вызова метода sum произошел"));
 
@@ -21,18 +25,27 @@ public class CalcDecorator implements iCalculable {
     }
 
     @Override
-    public iCalculable multi(int arg) {
-       int firstArg = oldCalc.getResult();
-        logger.log(String.format("Первое значение калькулятора %d. Начало вызова метода multi с параметром %d", firstArg, arg));
+    public iCalculable multi(Arg arg) {
+       Arg firstArg = oldCalc.getResult();
+        logger.log(String.format("Первое значение калькулятора %f+%f*i. Начало вызова метода multi с параметром %f+%f*i", firstArg.getRealPart(), firstArg.getComplexPart(), arg.getRealPart(), arg.getComplexPart()));
         iCalculable result = oldCalc.multi(arg);
         logger.log(String.format("Вызова метода multi произошел"));
         return result;
     }
 
     @Override
-    public int getResult() {
-        int result = oldCalc.getResult();
-        logger.log(String.format("Получение результата %d", result));
+    public Arg getResult() {
+        Arg result = oldCalc.getResult();
+        logger.log(String.format("Получение результата %f+%f*i", result.getRealPart(), result.getComplexPart()));
+        return result;
+    }
+
+    @Override
+    public iCalculable div(Arg arg) {
+       Arg firstArg = oldCalc.getResult();
+        logger.log(String.format("Первое значение калькулятора %f+%f*i. Начало вызова метода div с параметром %f+%f*i", firstArg.getRealPart(), firstArg.getComplexPart(), arg.getRealPart(), arg.getComplexPart()));
+        iCalculable result = oldCalc.div(arg);
+        logger.log(String.format("Вызова метода div произошел"));
         return result;
     }
     

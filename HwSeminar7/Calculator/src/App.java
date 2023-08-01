@@ -1,16 +1,21 @@
 import Calculator.CalcDecorator;
-import Calculator.Calculator;
 import Calculator.Logger;
-import Calculator.ViewCalculator;
-import Calculator.iCalculable;
+import Calculator.Controller.Controller;
+import Calculator.Controller.iCalculable;
+import Calculator.Model.Arg;
+import Calculator.Model.Calculator;
+import Calculator.View.ViewCalculator;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        iCalculable calculator = new Calculator(0);
+        Arg arg = new Arg(0, 0);
+        iCalculable calculator = new Calculator(arg);
 
         iCalculable newCalcLog = new CalcDecorator(calculator, new Logger());
         
         ViewCalculator view = new ViewCalculator(newCalcLog);
-        view.run();
+
+        Controller control = new Controller(newCalcLog, view);
+        control.run();
     }
 }
