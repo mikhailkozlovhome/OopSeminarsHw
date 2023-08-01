@@ -1,7 +1,7 @@
-package Calculator;
+package Calculator.Model;
 
+import Calculator.Logger;
 import Calculator.Controller.iCalculable;
-import Calculator.Model.Arg;
 
 public class CalcDecorator implements iCalculable {
 

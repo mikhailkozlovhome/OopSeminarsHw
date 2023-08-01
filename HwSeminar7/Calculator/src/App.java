@@ -1,8 +1,8 @@
-import Calculator.CalcDecorator;
 import Calculator.Logger;
 import Calculator.Controller.Controller;
 import Calculator.Controller.iCalculable;
 import Calculator.Model.Arg;
+import Calculator.Model.CalcDecorator;
 import Calculator.Model.Calculator;
 import Calculator.View.ViewCalculator;
 
